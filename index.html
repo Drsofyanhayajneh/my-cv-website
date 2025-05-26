@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Sofyan M.A. Hayajneh - Professional Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-1);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero .description {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Contact Bar */
+        .contact-bar {
+            background: var(--bg-white);
+            padding: 30px 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-1);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Leadership Vision */
+        .leadership-section {
+            background: var(--gradient-2);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leadership-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .leadership-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .leadership-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        /* Education Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient-1);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 10px;
+            width: 16px;
+            height: 16px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline-year {
+            background: var(--gradient-1);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .timeline-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .timeline-institution {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .timeline-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Experience Grid */
+        .experience-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .experience-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+            border-left: 5px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .experience-period {
+            background: var(--accent-color);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .experience-company {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+
+        .skill-name {
+            font-weight: 500;
+        }
+
+        .skill-level {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .skill-excellent {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .skill-very-good {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .skill-good {
+            background: var(--warning-color);
+            color: white;
+        }
+
+        /* Media Section */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .media-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .media-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .media-thumbnail {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+        }
+
+        .media-content {
+            padding: 25px;
+        }
+
+        .media-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .media-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .media-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .media-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .media-link:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Publications */
+        .publications-grid {
+            display: grid;
+            gap: 25px;
+        }
+
+        .publication-item {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .publication-type {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .publication-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .publication-authors {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .publication-venue {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Teaching Grid */
+        .teaching-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .teaching-category {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .teaching-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .course-list {
+            list-style: none;
+        }
+
+        .course-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .course-item:last-child {
+            border-bottom: none;
+        }
+
+        .course-item::before {
+            content: '▶';
+            color: var(--primary-color);
+            font-size: 0.8rem;
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .award-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .award-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-1);
+        }
+
+        .award-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .award-year {
+            background: var(--accent-color);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        /* References */
+        .references-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .reference-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+
+        .reference-avatar {
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .reference-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .reference-title {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .reference-contact {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            margin-bottom: 30px;
+        }
+
+        .footer-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-text {
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: var(--accent-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            opacity: 0.6;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid,
+            .teaching-grid,
+            .media-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mt-4 { margin-top: 1rem; }
+        .mt-6 { margin-top: 1.5rem; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">Dr. Sofyan Hayajneh</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#media">Media</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Dr. Sofyan M.A. Hayajneh</h1>
+                <div class="subtitle">Associate Professor | PhD in Computer Engineering</div>
+                <div class="description">
+                    Leading expert in Data Science, Artificial Intelligence, and Business Analytics with extensive experience in higher education leadership, innovation management, and academic research.
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Publications</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Master's Supervised</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">7</span>
+                        <span class="stat-label">TV Interviews</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Bar -->
+    <section class="contact-bar">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <strong>Email</strong><br>
+                        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2f5c4049564e41474e564e45414a476f48424e4643014c4042">[email&#160;protected]</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <strong>Phone</strong><br>
+                        +962 775 508 446
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <strong>Location</strong><br>
+                        Amman, Jordan
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div>
+                        <strong>Certification</strong><br>
+                        Innovation Management (GIMI)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Vision -->
+    <section class="leadership-section">
+        <div class="container">
+            <div class="leadership-content">
+                <div class="leadership-quote">
+                    "Innovation is highly reliant on the right transformational leadership and thoughtful use of technology."
+                </div>
+                <div class="leadership-text">
+                    <p>Future of jobs and emerging job opportunities rely on new skills along with Technical and Vocational skills development. I believe that the higher education sector has been facing increased pressure to adopt and cultivate a culture of innovative leadership.</p>
+                    <br>
+                    <p>I believe that Innovation is highly reliant on the right transformational leadership and thoughtful use of technology. I encourage creativity, dynamic cultures, openness in communication, and inspiration to motivate followers to cooperate, challenge themselves, and improve their innovative skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Education</h2>
+                <p class="section-subtitle">Academic journey from prestigious institutions worldwide</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2011</div>
+                    <h3 class="timeline-title">PhD in Computer Engineering / Data Science</h3>
+                    <div class="timeline-institution">University of Bradford, United Kingdom</div>
+                    <div class="timeline-description">
+                        <strong>Thesis:</strong> "Engineering and Computer-Based Processing Of Satellite Images for the 3D Visualization and Modelling of Solar Loops"<br>
+                        <strong>Focus:</strong> Big Data Algorithms, Analysis and Visualization, Computer Vision, Image Processing<br>
+                        <strong>Rankings:</strong> QS 591st, THE 601-800th
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2007</div>
+                    <h3 class="timeline-title">MSc in Electrical Engineering (Communications)</h3>
+                    <div class="timeline-institution">Jordan University of Science and Technology (JUST)</div>
+                    <div class="timeline-description">
+                        <strong>Grade:</strong> EXCELLENT<br>
+                        <strong>Thesis:</strong> "Single Sideband PSK Modulation Technique"<br>
+                        <strong>Rankings:</strong> QS 651-700th, THE 351-400th
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2005</div>
+                    <h3 class="timeline-title">BSc in Electrical Engineering (Communications)</h3>
+                    <div class="timeline-institution">Jordan University of Science and Technology (JUST)</div>
+                    <div class="timeline-description">
+                        <strong>Grade:</strong> VERY GOOD<br>
+                        <strong>Focus:</strong> Communications Engineering, Signal Processing
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Experience</h2>
+                <p class="section-subtitle">Leadership roles in academia and industry</p>
+            </div>
+
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Associate Professor</h3>
+                            <div class="experience-company">American University of Madaba - School of Business</div>
+                        </div>
+                        <div class="experience-period">Sep 2023 - Present</div>
+                    </div>
+                    <p>Leading MBA and Business Analytics programs, focusing on data-driven decision making and innovative business strategies.</p>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Director Assistant for Academic Affairs</h3>
+                            <div class="experience-company">Arab Open University - Jordan</div>
+                        </div>
+                        <div class="experience-period">Sep 2021 - Sep 2023</div>
+                    </div>
+                    <p>Managed revalidation of all university programs with Open University-UK, academic program reviews, and strategic planning initiatives.</p>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Head of Quality Assurance and Accreditation</h3>
+                            <div class="experience-company">Arab Open University - Jordan</div>
+                        </div>
+                        <div class="experience-period">Sep 2021 - Sep 2023</div>
+                    </div>
+                    <p>Led Business Continuity Plan 2022, AOU Fifth Strategy 2022-2027, and national accreditation processes.</p>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Local Dean, Faculty of Computer Studies</h3>
+                            <div class="experience-company">Arab Open University - Jordan</div>
+                        </div>
+                        <div class="experience-period">Sep 2021 - Present</div>
+                    </div>
+                    <p>Overseeing Data Science & AI, Computer Science, Network Security, and Graphic Design programs. Initiated new Data Science and AI programs.</p>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Committee Head & Member</h3>
+                            <div class="experience-company">Accreditation Commission for Higher Education</div>
+                        </div>
+                        <div class="experience-period">2017 - Present</div>
+                    </div>
+                    <p>Head of Accreditation Committee for Engineering, Computer Science, and Data Science programs. Design competitive examinations for Civil Service Bureau.</p>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Space Weather Research Associate</h3>
+                            <div class="experience-company">University of Bradford - Centre for Visual Computing</div>
+                        </div>
+                        <div class="experience-period">Mar 2009 - Present</div>
+                    </div>
+                    <p>Ongoing research collaboration in space weather analysis and solar imaging techniques.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical Skills</h2>
+                <p class="section-subtitle">Comprehensive expertise across multiple domains</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming & Development</h3>
+                    <div class="skill-item">
+                        <span class="skill-name">Python / PyCharm IDE</span>
+                        <span class="skill-level skill-very-good">Very Good</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">MATLAB + GUI</span>
+                        <span class="skill-level skill-excellent">Excellent</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Java / Eclipse IDE</span>
+                        <span class="skill-level skill-very-good">Very Good</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">C#</span>
+                        <span class="skill-level skill-good">Good</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i> Data Science & Analytics</h3>
+                    <div class="skill-item">
+                        <span class="skill-name">NumPy, Pandas, Sci-Kit Learn</span>
+                        <span class="skill-level skill-very-good">Very Good</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">TensorFlow, Theano</span>
+                        <span class="skill-level skill-very-good">Very Good</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Excel (Power Query, DAX)</span>
+                        <span class="skill-level skill-very-good">Very Good</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">PowerBI, Tableau</span>
+                        <span class="skill-level skill-very-good">Very Good</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
+                    <div class="skill-item">
+                        <span class="skill-name">Microsoft Office Suite</span>
+                        <span class="skill-level skill-excellent">Excellent</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">AutoCAD (2D, 3D)</span>
+                        <span class="skill-level skill-very-good">Very Good</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Arduino (Hardware/Software)</span>
+                        <span class="skill-level skill-very-good">Very Good</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Adobe Photoshop</span>
+                        <span class="skill-level skill-good">Good</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-chalkboard-teacher"></i> Teaching Tools</h3>
+                    <div class="skill-item">
+                        <span class="skill-name">Mind Maps (XMind, Visio)</span>
+                        <span class="skill-level skill-excellent">Excellent</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Video Creation (Camtasia)</span>
+                        <span class="skill-level skill-very-good">Very Good</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">ZOOM / MS Teams</span>
+                        <span class="skill-level skill-excellent">Excellent</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">MATLAB Simulink</span>
+                        <span class="skill-level skill-excellent">Excellent</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Appearances Section -->
+    <section class="section" id="media">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Media Appearances</h2>
+                <p class="section-subtitle">Expert commentary on technology and innovation</p>
+            </div>
+
+            <div class="media-grid">
+                <div class="media-card">
+                    <div class="media-thumbnail" onclick="window.open('https://youtu.be/ly8NjoT-ToY?t=381', '_blank')">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="media-content">
+                        <h3 class="media-title">Semiconductors and Electronic Chips in Tech Struggle</h3>
+                        <div class="media-date">AlArabi TV • March 25, 2023</div>
+                        <p class="media-description">Expert analysis on the importance of semiconductors in the technological competition between China and the West.</p>
+                        <a href="https://youtu.be/ly8NjoT-ToY?t=381" target="_blank" class="media-link">
+                            <i class="fas fa-play"></i> Watch Interview
+                        </a>
+                    </div>
+                </div>
+
+                <div class="media-card">
+                    <div class="media-thumbnail" onclick="window.open('https://www.youtube.com/watch?v=ChxVCF_bgTs', '_blank')">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="media-content">
+                        <h3 class="media-title">5G Technology: Why and Are We Ready?</h3>
+                        <div class="media-date">Yarmouk TV • January 19, 2022</div>
+                        <p class="media-description">Comprehensive discussion on 5G technology implementation and readiness in the region.</p>
+                        <a href="https://www.youtube.com/watch?v=ChxVCF_bgTs" target="_blank" class="media-link">
+                            <i class="fas fa-play"></i> Watch Interview
+                        </a>
+                    </div>
+                </div>
+
+                <div class="media-card">
+                    <div class="media-thumbnail" onclick="window.open('https://www.youtube.com/watch?v=TYhUFqh53Jw', '_blank')">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="media-content">
+                        <h3 class="media-title">Spam: What They Are - Tips and Instructions</h3>
+                        <div class="media-date">AlArabi TV • September 4, 2021</div>
+                        <p class="media-description">Educational segment on understanding and protecting against spam communications.</p>
+                        <a href="https://www.youtube.com/watch?v=TYhUFqh53Jw" target="_blank" class="media-link">
+                            <i class="fas fa-play"></i> Watch Interview
+                        </a>
+                    </div>
+                </div>
+
+                <div class="media-card">
+                    <div class="media-thumbnail" onclick="window.open('https://youtu.be/Txe8_KuYkc0', '_blank')">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="media-content">
+                        <h3 class="media-title">Employee Productivity Monitoring Software</h3>
+                        <div class="media-date">AlArabi TV • December 4, 2020</div>
+                        <p class="media-description">Analysis of productivity monitoring tools and their impact on workplace dynamics.</p>
+                        <a href="https://youtu.be/Txe8_KuYkc0" target="_blank" class="media-link">
+                            <i class="fas fa-play"></i> Watch Interview
+                        </a>
+                    </div>
+                </div>
+
+                <div class="media-card">
+                    <div class="media-thumbnail" onclick="window.open('https://www.youtube.com/watch?v=nsatFbr8nxI', '_blank')">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="media-content">
+                        <h3 class="media-title">Innovative Hacker Tricks: Electricity Theft</h3>
+                        <div class="media-date">AlArabi TV • June 3, 2020</div>
+                        <p class="media-description">Exposing innovative methods hackers use to steal electricity and consume hardware resources.</p>
+                        <a href="https://www.youtube.com/watch?v=nsatFbr8nxI" target="_blank" class="media-link">
+                            <i class="fas fa-play"></i> Watch Interview
+                        </a>
+                    </div>
+                </div>
+
+                <div class="media-card">
+                    <div class="media-thumbnail" onclick="window.open('https://www.youtube.com/watch?v=jMRW_zBM_ko', '_blank')">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="media-content">
+                        <h3 class="media-title">Space Broadband Internet - StarLink SpaceX</h3>
+                        <div class="media-date">AlArabi TV • November 28, 2019</div>
+                        <p class="media-description">Expert commentary on SpaceX's StarLink satellite internet constellation project.</p>
+                        <a href="https://www.youtube.com/watch?v=jMRW_zBM_ko" target="_blank" class="media-link">
+                            <i class="fas fa-play"></i> Watch Interview
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaching Experience -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Teaching Experience</h2>
+                <p class="section-subtitle">Comprehensive curriculum across graduate and undergraduate levels</p>
+            </div>
+
+            <div class="teaching-grid">
+                <div class="teaching-category">
+                    <h3><i class="fas fa-graduation-cap"></i> Graduate Courses (MBA)</h3>
+                    <ul class="course-list">
+                        <li class="course-item">Business Analytics (Tableau, Excel)</li>
+                        <li class="course-item">Data Visualization and Reporting</li>
+                        <li class="course-item">Database Management (MySQL)</li>
+                        <li class="course-item">Statistics for Business Analytics</li>
+                        <li class="course-item">Data Mining (Python, Excel, RapidMiner)</li>
+                        <li class="course-item">Research Methodology</li>
+                        <li class="course-item">Technical Writing</li>
+                    </ul>
+                </div>
+
+                <div class="teaching-category">
+                    <h3><i class="fas fa-laptop-code"></i> AI & Data Science</h3>
+                    <ul class="course-list">
+                        <li class="course-item">Introduction to Artificial Intelligence</li>
+                        <li class="course-item">Machine Learning Pipeline</li>
+                        <li class="course-item">Python for Data Science</li>
+                        <li class="course-item">Deep Learning (TensorFlow, Theano)</li>
+                        <li class="course-item">Computer Vision</li>
+                        <li class="course-item">Digital Image Processing</li>
+                    </ul>
+                </div>
+
+                <div class="teaching-category">
+                    <h3><i class="fas fa-code"></i> Programming & Engineering</h3>
+                    <ul class="course-list">
+                        <li class="course-item">Introduction to Programming (Python, Java)</li>
+                        <li class="course-item">Advanced Programming (OOP)</li>
+                        <li class="course-item">Algorithms and Data Structures</li>
+                        <li class="course-item">Digital Signal Processing</li>
+                        <li class="course-item">Microprocessors (8088/8086)</li>
+                        <li class="course-item">Digital Logic Circuits</li>
+                    </ul>
+                </div>
+
+                <div class="teaching-category">
+                    <h3><i class="fas fa-calculator"></i> Mathematics & Analytics</h3>
+                    <ul class="course-list">
+                        <li class="course-item">Statistics and Probability</li>
+                        <li class="course-item">Linear Algebra</li>
+                        <li class="course-item">Engineering Mathematics</li>
+                        <li class="course-item">Differential Equations</li>
+                        <li class="course-item">Numerical Analysis</li>
+                        <li class="course-item">Business Computer Applications</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="section" id="publications">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Publications</h2>
+                <p class="section-subtitle">Research contributions in top-tier journals and conferences</p>
+            </div>
+
+            <div class="publications-grid">
+                <div class="publication-item">
+                    <div class="publication-type">Book</div>
+                    <h3 class="publication-title">3D Visualization of Solar Magnetic Loops</h3>
+                    <div class="publication-authors">Sofyan Hayajneh, Rami Qahwaji, Tufan Colak</div>
+                    <div class="publication-venue">Germany, 2013</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-type">IEEE Conference</div>
+                    <h3 class="publication-title">Performance Analysis of Drone Assisted Multiple Antenna Backscatter IoT Sensor Network</h3>
+                    <div class="publication-authors">A. M Hayajneh, Haitham Al-Obiedollah, et al.</div>
+                    <div class="publication-venue">IEEE IOTSMS 2021</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-type">ISI Journal</div>
+                    <h3 class="publication-title">Project Management Knowledge Areas and Skills for Managing Software and Cloud Projects</h3>
+                    <div class="publication-authors">Hayajneh, Sofyan, M. Hamadah, S. Aljawarneh</div>
+                    <div class="publication-venue">Recent Patents on Computer Science, 2020</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-type">Scopus Journal</div>
+                    <h3 class="publication-title">A cloudlet based security and trust model for e-government web services</h3>
+                    <div class="publication-authors">Al-Shargabi, B., Al-Jawarneh S., Sofyan MA Hayajneh</div>
+                    <div class="publication-venue">Journal of Theoretical and Applied Information Technology, 2020</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-type">ISI Journal</div>
+                    <h3 class="publication-title">Cascades Neural Network Based Segmentation of Fluorescence Microscopy Cell Nuclei</h3>
+                    <div class="publication-authors">Hayajneh, Sofyan, M. Alomari, B. Al-Shargabi</div>
+                    <div class="publication-venue">International Journal of Advanced Computer Science and Applications, 2018</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-type">ISI Journal</div>
+                    <h3 class="publication-title">A Predictive Model for Solar Photovoltaic Power using Machine Learning Algorithms</h3>
+                    <div class="publication-authors">AlOmari Mohammad, Hayajneh, Sofyan</div>
+                    <div class="publication-venue">International Journal of Advanced Computer Science and Applications, 2018</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Awards & Recognition</h2>
+                <p class="section-subtitle">Achievements and honors throughout academic career</p>
+            </div>
+
+            <div class="awards-grid">
+                <div class="award-card">
+                    <div class="award-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="award-year">2023</div>
+                    <h3>Excellence in Teaching Award</h3>
+                    <p>Arab Open University</p>
+                </div>
+
+                <div class="award-card">
+                    <div class="award-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="award-year">2008-2011</div>
+                    <h3>Full PhD Scholarship</h3>
+                    <p>University of Bradford, UK<br>Funded by Isra University</p>
+                </div>
+
+                <div class="award-card">
+                    <div class="award-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="award-year">2005-2007</div>
+                    <h3>Full MSc Scholarship</h3>
+                    <p>Jordan University of Science and Technology</p>
+                </div>
+
+                <div class="award-card">
+                    <div class="award-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="award-year">2020</div>
+                    <h3>Innovation Associate Certification</h3>
+                    <p>Global Innovation Management Institute (GIMI)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- References Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional References</h2>
+                <p class="section-subtitle">Distinguished colleagues and collaborators</p>
+            </div>
+
+            <div class="references-grid">
+                <div class="reference-card">
+                    <div class="reference-avatar">OJ</div>
+                    <h3 class="reference-name">Prof. Omar Al Jarrah</h3>
+                    <div class="reference-title">Professor of Computer Engineering<br>Vice President, Planning and Development</div>
+                    <div class="reference-contact">
+                        Arab Open University (AOU)<br>
+                        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6a0b06000b18180b022a001f191e440f0e1f440005">[email&#160;protected]</a><br>
+                        +962 79 167 7777
+                    </div>
+                </div>
+
+                <div class="reference-card">
+                    <div class="reference-avatar">RQ</div>
+                    <h3 class="reference-name">Prof. Rami Qahwaji</h3>
+                    <div class="reference-title">Professor of Visual Computing<br>School of Electrical Engineering</div>
+                    <div class="reference-contact">
+                        University of Bradford, UK<br>
+                        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c99be79ae79be798a8a1bea8a3a0898bbba8adafa6bbade7a8aae7bca2">[email&#160;protected]</a><br>
+                        +44 1274 232323
+                    </div>
+                </div>
+
+                <div class="reference-card">
+                    <div class="reference-avatar">ND</div>
+                    <h3 class="reference-name">Prof. Nihad Dib</h3>
+                    <div class="reference-title">Professor of Electrical Engineering</div>
+                    <div class="reference-contact">
+                        Jordan University of Science and Technology<br>
+                        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cba5a2a3aaaf8ba1beb8bfe5aeafbee5a1a4">[email&#160;protected]</a><br>
+                        +962 79 530 4558
+                    </div>
+                </div>
+
+                <div class="reference-card">
+                    <div class="reference-avatar">MA</div>
+                    <h3 class="reference-name">Prof. Mansour Abbadi</h3>
+                    <div class="reference-title">Professor of Electrical Engineering</div>
+                    <div class="reference-contact">
+                        Jordan University of Science and Technology<br>
+                        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ea878b88888b8e83aa809f999ec48f8e9fc48085">[email&#160;protected]</a><br>
+                        +962 79 557 4238
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h3 class="footer-title">Dr. Sofyan M.A. Hayajneh</h3>
+                <p class="footer-text">
+                    Driving innovation in Data Science, AI, and Higher Education Leadership
+                </p>
+                <div class="social-links">
+                    <a href="/cdn-cgi/l/email-protection#c4b7aba2bda5aaaca5bda5aeaaa1ac84a3a9a5ada8eaa7aba9" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+962775508446" class="social-link">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <a href="http://spaceweather.inf.brad.ac.uk" target="_blank" class="social-link">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dr. Sofyan M.A. Hayajneh. All rights reserved. | Last updated: May 2024</p>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.05)';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card, .experience-card, .media-card, .award-card, .reference-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
